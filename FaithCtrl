@@ -1,4 +1,4 @@
--- Alt screens by - FearFaith
+-- Alt screen
 -- Instances:
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -92,3 +92,39 @@ TextLabel_6.Text = "FPS: 60"
 TextLabel_6.TextColor3 = Color3.fromRGB(79, 79, 79)
 TextLabel_6.TextSize = 48.000
 TextLabel_6.TextStrokeColor3 = Color3.fromRGB(59, 59, 59)
+
+-- Scripts:
+
+local function CFUYAU_fake_script() -- TextLabel_4.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_4)
+
+	local player = game.Players.LocalPlayer
+	
+	script.Parent.Text = "Welcome, "..player.Name
+	
+end
+coroutine.wrap(CFUYAU_fake_script)()
+local function ZABIPRO_fake_script() -- TextLabel_5.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_5)
+
+	local player = game.Players.LocalPlayer
+	
+	script.Parent.Text = "@"..player.DisplayName
+end
+coroutine.wrap(ZABIPRO_fake_script)()
+local function GENHDIZ_fake_script() -- TextLabel_6.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_6)
+
+	local RS = game:GetService("RunService")
+	local frames = 0
+	
+	RS.RenderStepped:Connect(function()
+		frames = frames + 1
+	end)
+	
+	while wait(1) do
+		script.Parent.Text = "FPS: "..frames
+		frames = 0
+	end
+end
+coroutine.wrap(GENHDIZ_fake_script)()
